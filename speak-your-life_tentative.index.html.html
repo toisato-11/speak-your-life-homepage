@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speak your Life ― 英語コーチング</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141412;
+    --ink-soft:#3a3835;
+    --paper:#F7F6F2;
+    --paper-2:#EFEDE6;
+    --line:#D9D5C9;
+    --mute:#847E71;
+    --accent:#31435E;
+    --accent-soft:#E4E7EA;
+    --serif:'Shippori Mincho', serif;
+    --sans:'Noto Sans JP', sans-serif;
+    --garamond:'EB Garamond', serif;
+    --maxw: 1040px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-weight:400;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--ink); color:var(--paper); }
+
+  a{ color:inherit; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(247,246,242,0.86);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease, background .3s ease;
+  }
+  header.nav.scrolled{ border-bottom:1px solid var(--line); }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{
+    font-family:var(--garamond); font-style:italic; font-size:19px;
+    letter-spacing:.02em;
+  }
+  .brand small{
+    display:block; font-family:var(--sans); font-style:normal;
+    font-size:10px; letter-spacing:.14em; color:var(--mute); margin-top:2px;
+  }
+  nav.links{ display:flex; gap:28px; font-size:13px; letter-spacing:.03em; }
+  nav.links a{ text-decoration:none; color:var(--ink-soft); position:relative; }
+  nav.links a:after{
+    content:""; position:absolute; left:0; bottom:-4px; width:0; height:1px;
+    background:var(--ink); transition:width .25s ease;
+  }
+  nav.links a:hover:after{ width:100%; }
+  .nav-cta{
+    font-size:12.5px; border:1px solid var(--ink); padding:9px 18px;
+    text-decoration:none; letter-spacing:.05em; white-space:nowrap;
+  }
+  .nav-cta:hover{ background:var(--ink); color:var(--paper); }
+  .menu-btn{ display:none; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100svh; display:flex; flex-direction:column;
+    justify-content:center; padding-top:110px; padding-bottom:60px;
+    position:relative;
+  }
+  .eyebrow{
+    font-size:11.5px; letter-spacing:.22em; color:var(--mute);
+    text-transform:uppercase; margin-bottom:22px;
+  }
+  h1.hero-title{
+    font-family:var(--garamond); font-style:italic; font-weight:500;
+    font-size:clamp(48px, 9vw, 104px); line-height:1.02; margin:0 0 26px;
+    letter-spacing:-.01em;
+  }
+  .hero-sub{
+    font-family:var(--serif); font-size:clamp(19px,2.6vw,25px);
+    font-weight:500; max-width:640px; line-height:1.7; margin:0 0 34px;
+  }
+  .hero-line{ width:100%; max-width:560px; height:2px; margin:8px 0 34px; overflow:hidden;}
+  .hero-line svg{ display:block; width:100%; height:2px; }
+  .hero-line path{
+    stroke:var(--ink); stroke-width:2; fill:none;
+    stroke-dasharray:600; stroke-dashoffset:600;
+    animation:draw 1.6s .3s cubic-bezier(.65,0,.35,1) forwards;
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  .hero-desc{ max-width:480px; color:var(--ink-soft); font-size:15px; }
+  .scroll-cue{
+    position:absolute; bottom:34px; left:28px; font-size:11px;
+    letter-spacing:.15em; color:var(--mute); display:flex; align-items:center; gap:10px;
+  }
+  .scroll-cue .bar{ width:1px; height:34px; background:var(--line); position:relative; overflow:hidden;}
+  .scroll-cue .bar:after{
+    content:""; position:absolute; top:-34px; left:0; width:100%; height:34px;
+    background:var(--ink); animation:cue 2.2s ease-in-out infinite;
+  }
+  @keyframes cue{ 0%{top:-34px;} 60%{top:34px;} 100%{top:34px;} }
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{ padding:118px 0; border-top:1px solid var(--line); }
+  section:first-of-type{ border-top:none; }
+  .chapter{
+    display:flex; gap:36px; align-items:flex-start;
+  }
+  .chapter-num{
+    font-family:var(--garamond); font-style:italic; font-size:16px;
+    color:var(--mute); flex:0 0 auto; padding-top:6px; letter-spacing:.05em;
+  }
+  .chapter-body{ flex:1; min-width:0; }
+  h2.chapter-title{
+    font-family:var(--serif); font-weight:600; font-size:clamp(26px,4vw,38px);
+    margin:0 0 30px; line-height:1.35;
+  }
+  .lead{
+    font-size:17px; color:var(--ink-soft); max-width:640px; margin:0 0 20px;
+  }
+  .fade-in{ opacity:0; transform:translateY(16px); transition:opacity .8s ease, transform .8s ease; }
+  .fade-in.in{ opacity:1; transform:none; }
+
+  /* ---------- CONCEPT / NAME MEANING ---------- */
+  .name-break{
+    font-family:var(--garamond); font-style:italic; font-size:clamp(26px,4vw,34px);
+    color:var(--ink); margin:36px 0 8px; line-height:1.5;
+  }
+  .name-break .life{ text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:6px; }
+  .caption{ font-size:13px; color:var(--mute); max-width:520px; }
+  .caption-strong{
+    font-size:17px; color:var(--ink); font-weight:500; max-width:560px;
+    line-height:1.8; border-left:2px solid var(--accent); padding-left:18px;
+  }
+
+  /* ---------- STORY TIMELINE ---------- */
+  .timeline{ margin-top:10px; }
+  .t-row{
+    display:grid; grid-template-columns:96px 1fr; gap:22px;
+    padding:20px 0; border-bottom:1px solid var(--line);
+  }
+  .t-row:last-child{ border-bottom:none; }
+  .t-tag{ font-size:12.5px; color:var(--mute); letter-spacing:.05em; padding-top:2px;}
+  .t-text{ font-size:15.5px; }
+  .t-text strong{ font-weight:600; }
+  .story-cta{
+    margin-top:34px; display:inline-flex; align-items:center; gap:10px;
+    font-size:13.5px; text-decoration:none; border-bottom:1px solid var(--ink); padding-bottom:3px;
+  }
+
+  /* ---------- PERSONAS ---------- */
+  .persona-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:10px;
+    border:1px solid var(--line);
+  }
+  .persona{ padding:40px 34px; }
+  .persona + .persona{ border-left:1px solid var(--line); }
+  .persona-tag{
+    font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--mute);
+    margin-bottom:16px;
+  }
+  .persona h3{
+    font-family:var(--serif); font-size:22px; font-weight:600; margin:0 0 16px;
+  }
+  .persona ul{ padding-left:18px; margin:0 0 0; font-size:14.5px; color:var(--ink-soft); }
+  .persona li{ margin-bottom:8px; }
+
+  /* ---------- SUPPORT GRID ---------- */
+  .support-grid{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); margin-top:10px;
+  }
+  .support-item{ background:var(--paper); padding:32px 30px; }
+  .support-item .num{
+    font-family:var(--garamond); font-style:italic; font-size:14px; color:var(--mute); display:block; margin-bottom:12px;
+  }
+  .support-item h4{ font-family:var(--serif); font-size:17.5px; margin:0 0 10px; font-weight:600; }
+  .support-item p{ font-size:14px; color:var(--ink-soft); margin:0; }
+
+  /* ---------- PLANS / PRICING ---------- */
+  .plan-block{
+    border:1px solid var(--line); margin-top:34px; padding:38px 36px;
+    display:grid; grid-template-columns:1fr auto; gap:30px; align-items:center;
+  }
+  .plan-left h3{ font-family:var(--serif); font-size:21px; margin:0 0 8px; }
+  .plan-left .plan-desc{ font-size:14px; color:var(--ink-soft); max-width:480px; margin-bottom:14px;}
+  .plan-meta{ font-size:12.5px; color:var(--mute); }
+  .plan-right{ text-align:right; }
+  .price{ font-family:var(--garamond); font-size:34px; margin:0; }
+  .price small{ font-family:var(--sans); font-size:13px; color:var(--mute); display:block; margin-top:4px; }
+  .buy-btn{
+    display:inline-block; margin-top:16px; padding:12px 26px; font-size:13px;
+    letter-spacing:.05em; text-decoration:none; border:1px solid var(--ink); background:var(--ink); color:var(--paper);
+  }
+  .buy-btn:hover{ background:transparent; color:var(--ink); }
+  .buy-note{ font-size:11px; color:var(--mute); margin-top:8px; max-width:200px; }
+  .founder-price-note{
+    margin-top:26px; font-size:13px; color:var(--ink-soft); border-left:2px solid var(--accent);
+    padding:12px 18px; background:var(--accent-soft);
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-item{ border-bottom:1px solid var(--line); padding:22px 0; }
+  .faq-item:first-child{ border-top:1px solid var(--line); }
+  .faq-q{ font-family:var(--serif); font-weight:600; font-size:16px; margin:0 0 10px; }
+  .faq-a{ font-size:14.5px; color:var(--ink-soft); margin:0; max-width:640px; }
+
+  /* ---------- LEGAL / TOKUSHOHO ---------- */
+  .legal-note{
+    font-size:13px; color:var(--mute); margin-bottom:26px; padding:14px 18px;
+    border:1px dashed var(--line);
+  }
+  table.legal{ width:100%; border-collapse:collapse; font-size:14px; }
+  table.legal tr{ border-bottom:1px solid var(--line); }
+  table.legal th{
+    text-align:left; padding:16px 20px 16px 0; width:180px; vertical-align:top;
+    color:var(--mute); font-weight:500; font-size:13px;
+  }
+  table.legal td{ padding:16px 0; vertical-align:top; }
+  .fill{ background:var(--accent-soft); padding:1px 6px; }
+
+  /* ---------- FOOTER ---------- */
+  footer{ padding:70px 0 50px; border-top:1px solid var(--line); }
+  .footer-inner{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px; }
+  .footer-brand{ font-family:var(--garamond); font-style:italic; font-size:20px; }
+  .footer-links{ display:flex; gap:22px; font-size:13px; }
+  .footer-links a{ text-decoration:none; color:var(--ink-soft); }
+  .footer-fine{ font-size:11.5px; color:var(--mute); margin-top:30px; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:760px){
+    nav.links{ display:none; }
+    .menu-btn{
+      display:block; background:none; border:1px solid var(--ink); font-size:12px;
+      padding:8px 14px; letter-spacing:.05em;
+    }
+    .chapter{ flex-direction:column; gap:14px; }
+    .persona-grid{ grid-template-columns:1fr; }
+    .persona + .persona{ border-left:none; border-top:1px solid var(--line); }
+    .support-grid{ grid-template-columns:1fr; }
+    .plan-block{ grid-template-columns:1fr; text-align:left; }
+    .plan-right{ text-align:left; }
+    table.legal th{ width:120px; padding-right:10px; }
+    section{ padding:74px 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="siteNav">
+  <div class="nav-inner">
+    <div class="brand">Speak your Life<small>TOI'S ENGLISH COACHING</small></div>
+    <nav class="links">
+      <a href="#concept">コンセプト</a>
+      <a href="#story">これまでの道のり</a>
+      <a href="#for-you">こんな人へ</a>
+      <a href="#plans">プランと料金</a>
+      <a href="#faq">よくある質問</a>
+    </nav>
+    <a class="nav-cta" href="#plans">プランを見る</a>
+  </div>
+</header>
+
+<section class="hero wrap">
+  <div class="eyebrow">ENGLISH COACHING FOR YOUR NEXT CHAPTER</div>
+  <h1 class="hero-title">Speak your Life</h1>
+  <p class="hero-sub">英語力の前に、まず「なぜ話すのか」を一緒に見つける。</p>
+  <div class="hero-line">
+    <svg viewBox="0 0 560 2" preserveAspectRatio="none"><path d="M0,1 L560,1"/></svg>
+  </div>
+  <p class="hero-desc">
+    ライフスタイルもライフステージも、目指す場所も人それぞれ。あなたの生活と目標から逆算した、完全オーダーメイドの学習設計と、週1回のZoom・毎日のLINE相談で、あなたのゴールまで伴走します。
+  </p>
+  <div class="scroll-cue"><div class="bar"></div>SCROLL</div>
+</section>
+
+<section id="concept" class="wrap">
+  <div class="chapter fade-in">
+    <div class="chapter-num">I.</div>
+    <div class="chapter-body">
+      <h2 class="chapter-title">なぜ「Speak your Life」なのか</h2>
+      <p class="lead">
+        Speak English ではなく、Speak your Life。単に英語が話せるようになることをゴールにはしていません。英語学習を通じて、これまで気づかなかった自分の選択肢に気づき、それを声に出して掴みにいく。そのための伴走者でありたいという想いから、あえて English の代わりに Life という言葉を選びました。
+      </p>
+      <div class="name-break">Speak your <span class="life">Life</span>, not just your English.</div>
+      <p class="caption-strong">英語は目的ではなく、人生を広げるための一つの手段。コミュニケーションの道具として、英語をあなたの一部にしていきます。</p>
+    </div>
+  </div>
+</section>
+
+<section id="story" class="wrap">
+  <div class="chapter fade-in">
+    <div class="chapter-num">II.</div>
+    <div class="chapter-body">
+      <h2 class="chapter-title">これまでの道のり</h2>
+      <p class="lead">
+        このサービスは、私自身の小さな一歩から始まった経験に基づいています。
+      </p>
+      <div class="timeline">
+        <div class="t-row">
+          <div class="t-tag">START</div>
+          <div class="t-text"><strong>英検4級</strong>。これが私の英語学習の、正真正銘の出発点でした。</div>
+        </div>
+        <div class="t-row">
+          <div class="t-tag">STEP</div>
+          <div class="t-text">4級合格から2年で<strong>英検準1級</strong>まで合格し、積み重ねた学習の先に、<strong>オーストラリア留学</strong>という選択肢が現実になりました。<span style="color:var(--mute);font-size:13px;">(2022)</span></div>
+        </div>
+        <div class="t-row">
+          <div class="t-tag">STEP</div>
+          <div class="t-text"><strong>英検1級合格・TOEIC 930点</strong>。数字としての結果も、後からついてきました。<span style="color:var(--mute);font-size:13px;">(2024〜2025)</span></div>
+        </div>
+        <div class="t-row">
+          <div class="t-tag">NOW</div>
+          <div class="t-text">英語での発信を続ける<strong>YouTubeチャンネル「Toi's English」</strong>、そしてこのコーチングという形で、学んだことを還元しています。</div>
+        </div>
+        <div class="t-row">
+          <div class="t-tag">NEXT</div>
+          <div class="t-text">将来は海外を拠点に活動することが、私にとって当たり前の選択肢になりました。</div>
+        </div>
+      </div>
+      <p class="lead" style="margin-top:30px;">
+        小さな一歩が、選択肢を広げ、次の一歩につながっていく。<br>
+        その一歩一歩がやがて想像もつかないほどの壮大な景色を見せてくれる。<br>
+        私はあなたにもそんな体験をしてほしい。<br>
+        この再現性のある道のりを、あなたの状況に合わせて設計し直すのが、本サービスの役割です。
+      </p>
+      <a class="story-cta" href="https://youtube.com/@toienglish?si=kIdS7QCQ6wWZ0hOK" target="_blank" rel="noopener">YouTube「Toi's English」を見る →</a>
+    </div>
+  </div>
+</section>
+
+<section id="for-you" class="wrap">
+  <div class="chapter fade-in">
+    <div class="chapter-num">III.</div>
+    <div class="chapter-body">
+      <h2 class="chapter-title">こんな人へ</h2>
+      <p class="lead">大学生と社会人、それぞれのライフステージに合わせて、伴走の形を分けています。</p>
+      <div class="persona-grid">
+        <div class="persona">
+          <div class="persona-tag">Student Plan</div>
+          <h3>大学生の方へ</h3>
+          <ul>
+            <li>就活・留学準備・将来の選択肢を広げたい</li>
+            <li>単なる英会話ではなく、目標から逆算した学習がしたい</li>
+            <li>同世代に近い立場のコーチに相談しながら進めたい</li>
+            <li>集中的に基礎(語彙・文法・発音)を固め、スピーキングのクオリティを上げたい</li>
+          </ul>
+        </div>
+        <div class="persona">
+          <div class="persona-tag">Professional Plan</div>
+          <h3>社会人の方へ(キャリア初期・転換期)</h3>
+          <ul>
+            <li>リスキリングの入口としてTOEICスコアを伸ばしたいが、ゴールは現場で使える英語力</li>
+            <li>ワーキングホリデーや留学を見据えて、実践的な会話力を準備したい</li>
+            <li>キャリアの転換期に、英語を武器の一つにしたい</li>
+            <li>中長期で、じっくり伴走してもらいたい</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="chapter fade-in">
+    <div class="chapter-num">IV.</div>
+    <div class="chapter-body">
+      <h2 class="chapter-title">サポートの中身</h2>
+      <p class="lead">英語の先生ではなく、学習設計とペース配分の伴走者。スピーキングを軸に、基礎力と実践力の両方を引き上げます。</p>
+      <div class="support-grid">
+        <div class="support-item">
+          <span class="num">i</span>
+          <h4>目標の言語化</h4>
+          <p>現在のライフスタイル・ライフステージ・今後の目標を踏まえ、なぜ英語を学ぶのか、何を目指すのかを最初に一緒に決めます。</p>
+        </div>
+        <div class="support-item">
+          <span class="num">ii</span>
+          <h4>完全オーダーメイドの学習プラン</h4>
+          <p>決めた目標を達成するための学習プランを設計し、毎週トラッキング。進捗に応じて柔軟に調整します。</p>
+        </div>
+        <div class="support-item">
+          <span class="num">iii</span>
+          <h4>週1回のZoomセッション</h4>
+          <p>語彙・文法・発音の基礎を大切にしながら、一貫して「話す」ことを軸に進めます。<br><br>
+          直接聞きたい英語の質問、学習方法の最適化、モチベーション維持、目標の再確認のすべてを1on1で行います。<br><br>
+          ネイティブにはできない日本語での言語化、英語講師にはできないライフスタイルと目的に応じた学習設計。もちろん希望があればすべて英語で行うこともできます。</p>
+        </div>
+        <div class="support-item">
+          <span class="num">iv</span>
+          <h4>毎日のLINE相談</h4>
+          <p>英語の疑問はもちろん、学習習慣の形成や、効果的な学習法の提案もその都度対応します。</p>
+        </div>
+      </div>
+      <p class="lead" style="margin-top:30px;">
+        スピーキングを軸足にすることで、語彙・文法・発音といった基礎力が完全に定着し、リーディングやライティングなど他技能の底上げにもつながります。必要に応じて資格試験対策も組み込みますが、軸はあくまで「話すこと」です。これを軸に基礎を積み上げていくことで、将来的にはTOEIC900点・英検1級も目指すことができます。
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="plans" class="wrap">
+  <div class="chapter fade-in">
+    <div class="chapter-num">V.</div>
+    <div class="chapter-body">
+      <h2 class="chapter-title">プランと料金</h2>
+      <p class="lead">立ち上げ期につき、先行者価格でご案内しています。決済はStripeを通じて安全に行われます。</p>
+
+      <div class="plan-block">
+        <div class="plan-left">
+          <h3>学生プラン</h3>
+          <p class="plan-desc">週1回Zoom(45〜60分)+毎日LINE相談。月単位の契約なので、2ヶ月だけの集中利用も、長期の継続利用も選べます。</p>
+          <div class="plan-meta">契約期間:1ヶ月〜(自動更新・いつでも解約可) ／ お支払い:月額(クレジットカード)</div>
+        </div>
+        <div class="plan-right">
+          <p class="price">¥24,800<small>月額(税込)</small></p>
+          <a class="buy-btn" href="#">申し込む</a>
+          <p class="buy-note">※Stripe決済リンクは準備中です</p>
+        </div>
+      </div>
+
+      <div class="plan-block">
+        <div class="plan-left">
+          <h3>社会人プラン</h3>
+          <p class="plan-desc">週1回Zoom+毎日LINE相談。リスキリング・ワーホリ準備に対応。月単位の契約なので、短期集中でも中長期の伴走でも選べます。</p>
+          <div class="plan-meta">契約期間:1ヶ月〜(自動更新・いつでも解約可) ／ お支払い:月額(クレジットカード)</div>
+        </div>
+        <div class="plan-right">
+          <p class="price">¥44,000<small>月額(税込)</small></p>
+          <a class="buy-btn" href="#">申し込む</a>
+          <p class="buy-note">※Stripe決済リンクは準備中です</p>
+        </div>
+      </div>
+
+      <div class="founder-price-note">
+        現在は立ち上げ期のため、先行者価格でご案内しています。今後、実績・お客様の声の蓄積に伴い価格を見直す場合があります。
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="wrap">
+  <div class="chapter fade-in">
+    <div class="chapter-num">VI.</div>
+    <div class="chapter-body">
+      <h2 class="chapter-title">よくある質問</h2>
+      <div class="faq-item">
+        <p class="faq-q">英語がまったく話せなくても大丈夫ですか？</p>
+        <p class="faq-a">大丈夫です。まずは現状のレベルと目標をヒアリングした上で、無理のない学習プランから始めます。ただし、中学レベルの語彙と文法は理解していることが望ましいです。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">資格試験対策(TOEIC等)はしてもらえますか？</p>
+        <p class="faq-a">はい。普段のスピーキング学習を軸にしながら、必要に応じて短期的に資格試験対策も組み込みます。ただし基本方針はあくまでスピーキングベースで英語力を底上げしつつ、試験での目標達成を目指します。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">途中で解約はできますか？</p>
+        <p class="faq-a">はい、最低契約期間はありません。次回更新日の前までにご連絡いただければ、いつでも解約可能です。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">支払い方法は何がありますか？</p>
+        <p class="faq-a">クレジットカード決済のみとなります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="legal" class="wrap">
+  <div class="chapter fade-in">
+    <div class="chapter-num">—</div>
+    <div class="chapter-body">
+      <h2 class="chapter-title" style="font-size:24px;">特定商取引法に基づく表記</h2>
+      <div class="legal-note">
+        黄色くマークされた箇所は、公開前にご自身の情報へ差し替えてください。住所・電話番号を非公開にする場合は、消費者庁のガイドラインに従い「請求があれば遅滞なく開示する」旨の記載と、実際に開示できる体制の整備が必要です。
+      </div>
+      <table class="legal">
+        <tr><th>販売事業者</th><td>佐藤冬惟(屋号:Toi's English)</td></tr>
+        <tr><th>運営統括責任者</th><td>佐藤冬惟</td></tr>
+        <tr><th>所在地</th><td>請求があれば遅滞なく開示いたします</td></tr>
+        <tr><th>電話番号</th><td>請求があれば遅滞なく開示いたします</td></tr>
+        <tr><th>メールアドレス</th><td>toi.for.business@gmail.com</td></tr>
+        <tr><th>販売価格</th><td>各プランページに記載の月額料金(税込)</td></tr>
+        <tr><th>商品代金以外の必要料金</th><td>なし(振込手数料等が発生する場合は別途表示)</td></tr>
+        <tr><th>お支払い方法</th><td>クレジットカード決済(Stripe)</td></tr>
+        <tr><th>お支払い時期</th><td>お申込み時、以降は毎月同日に自動決済</td></tr>
+        <tr><th>サービス提供時期</th><td>決済確認後、3営業日以内に初回セッションの日程を調整</td></tr>
+        <tr><th>キャンセル・返金について</th><td>最低契約期間なし。月単位の自動更新で、次回更新日の5日前までにご連絡いただければ解約可能です。日割りでの返金は行いません。</td></tr>
+        <tr><th>動作環境</th><td>Zoom(ビデオ通話)、LINE(メッセージ)が利用できる環境</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div class="footer-inner">
+    <div class="footer-brand">Speak your Life</div>
+    <div class="footer-links">
+      <a href="#">YouTube</a>
+      <a href="#">お問い合わせ</a>
+      <a href="#legal">特定商取引法に基づく表記</a>
+    </div>
+  </div>
+  <p class="footer-fine">© 2026 Speak your Life / Toi's English. All rights reserved.</p>
+</footer>
+
+<script>
+  // nav scroll state
+  const nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // fade-in on scroll
+  const items = document.querySelectorAll('.fade-in');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  items.forEach(i => io.observe(i));
+</script>
+
+</body>
+</html>
