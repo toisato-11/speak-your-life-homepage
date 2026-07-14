@@ -114,7 +114,7 @@
   @keyframes cue{ 0%{top:-34px;} 60%{top:34px;} 100%{top:34px;} }
 
   /* ---------- SECTION SCAFFOLD ---------- */
-  section{ padding:118px 0; border-top:1px solid var(--line); }
+  section{ padding:190px 0 130px; border-top:1px solid var(--line); }
   section:first-of-type{ border-top:none; }
   .chapter{
     display:flex; gap:36px; align-items:flex-start;
@@ -183,6 +183,16 @@
     display:grid; grid-template-columns:repeat(2,1fr); gap:1px;
     background:var(--line); border:1px solid var(--line); margin-top:10px;
   }
+  .step-list{ margin-top:10px; border-top:1px solid var(--line); }
+  .step-row{
+    display:grid; grid-template-columns:56px 1fr; gap:22px;
+    padding:26px 0; border-bottom:1px solid var(--line);
+  }
+  .step-row .num{
+    font-family:var(--garamond); font-style:italic; font-size:22px; color:var(--mute); padding-top:2px;
+  }
+  .step-row h4{ font-family:var(--serif); font-size:17.5px; margin:0 0 10px; font-weight:600; }
+  .step-row p{ font-size:14px; color:var(--ink-soft); margin:0; }
   .support-item{ background:var(--paper); padding:32px 30px; }
   .support-item .num{
     font-family:var(--garamond); font-style:italic; font-size:14px; color:var(--mute); display:block; margin-bottom:12px;
@@ -254,7 +264,7 @@
     .plan-block{ grid-template-columns:1fr; text-align:left; }
     .plan-right{ text-align:left; }
     table.legal th{ width:120px; padding-right:10px; }
-    section{ padding:74px 0; }
+    section{ padding:112px 0 84px; }
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -271,6 +281,8 @@
       <a href="#concept">コンセプト</a>
       <a href="#story">これまでの道のり</a>
       <a href="#for-you">こんな人へ</a>
+      <a href="#support">サポートの中身</a>
+      <a href="#roadmap">学習ロードマップ</a>
       <a href="#plans">プランと料金</a>
       <a href="#faq">よくある質問</a>
     </nav>
@@ -297,7 +309,8 @@
     <div class="chapter-body">
       <h2 class="chapter-title">なぜ「Speak your Life」なのか</h2>
       <p class="lead">
-        Speak English ではなく、Speak your Life。単に英語が話せるようになることをゴールにはしていません。英語学習を通じて、これまで気づかなかった自分の選択肢に気づき、それを声に出して掴みにいく。そのための伴走者でありたいという想いから、あえて English の代わりに Life という言葉を選びました。
+        Speak English ではなく、Speak your Life。単に英語が話せるようになることをゴールにはしていません。
+        英語学習を通じて、これまで気づかなかった自分の選択肢に気づき、それを声に出して掴みにいく。そのための伴走者でありたいという想いから、あえて English の代わりに Life という言葉を選びました。
       </p>
       <div class="name-break">Speak your <span class="life">Life</span>, not just your English.</div>
       <p class="caption-strong">英語は目的ではなく、人生を広げるための一つの手段。コミュニケーションの道具として、英語をあなたの一部にしていきます。</p>
@@ -319,12 +332,12 @@
           <div class="t-text"><strong>英検4級</strong>。これが私の英語学習の、正真正銘の出発点でした。</div>
         </div>
         <div class="t-row">
-          <div class="t-tag">STEP</div>
-          <div class="t-text">4級合格から2年で<strong>英検準1級</strong>まで合格し、積み重ねた学習の先に、<strong>オーストラリア留学</strong>という選択肢が現実になりました。<span style="color:var(--mute);font-size:13px;">(2022)</span></div>
+          <div class="t-tag">2022</div>
+          <div class="t-text">4級合格から2年で<strong>英検準1級</strong>まで合格し、積み重ねた学習の先に、<strong>オーストラリア留学</strong>という選択肢が現実になりました。</div>
         </div>
         <div class="t-row">
-          <div class="t-tag">STEP</div>
-          <div class="t-text"><strong>英検1級合格・TOEIC 930点</strong>。数字としての結果も、後からついてきました。<span style="color:var(--mute);font-size:13px;">(2024〜2025)</span></div>
+          <div class="t-tag">2024~2025</div>
+          <div class="t-text"><strong>英検1級合格・TOEIC 930点</strong>。数字としての結果も、後からついてきました。</div>
         </div>
         <div class="t-row">
           <div class="t-tag">NOW</div>
@@ -351,7 +364,7 @@
     <div class="chapter-num">III.</div>
     <div class="chapter-body">
       <h2 class="chapter-title">こんな人へ</h2>
-      <p class="lead">大学生と社会人、それぞれのライフステージに合わせて、伴走の形を分けています。</p>
+      <p class="lead">大学生と社会人、それぞれのライフステージに合わせて、様々な目的に対応したサポートを提供します。</p>
       <div class="persona-grid">
         <div class="persona">
           <div class="persona-tag">Student Plan</div>
@@ -360,7 +373,7 @@
             <li>就活・留学準備・将来の選択肢を広げたい</li>
             <li>単なる英会話ではなく、目標から逆算した学習がしたい</li>
             <li>同世代に近い立場のコーチに相談しながら進めたい</li>
-            <li>集中的に基礎(語彙・文法・発音)を固め、スピーキングのクオリティを上げたい</li>
+            <li>基礎(語彙・文法・発音)をしっかり固め、スピーキングのクオリティを上げたい</li>
           </ul>
         </div>
         <div class="persona">
@@ -378,7 +391,7 @@
   </div>
 </section>
 
-<section class="wrap">
+<section id="support" class="wrap">
   <div class="chapter fade-in">
     <div class="chapter-num">IV.</div>
     <div class="chapter-body">
@@ -397,15 +410,16 @@
         </div>
         <div class="support-item">
           <span class="num">iii</span>
-          <h4>週1回のZoomセッション</h4>
-          <p>語彙・文法・発音の基礎を大切にしながら、一貫して「話す」ことを軸に進めます。<br><br>
-          直接聞きたい英語の質問、学習方法の最適化、モチベーション維持、目標の再確認のすべてを1on1で行います。<br><br>
-          ネイティブにはできない日本語での言語化、英語講師にはできないライフスタイルと目的に応じた学習設計。もちろん希望があればすべて英語で行うこともできます。</p>
+          <h4>月6回のZoomセッション</h4>
+          <p>英会話ミーティング(週1回・60〜90分・月4回)+ 管理ミーティング(月2回)の組み合わせです。<br><br>
+          英会話ミーティングでは、語彙・文法・発音の基礎を大切にしながら、一貫して「話す」ことを軸に進めます。直接聞きたい英語の質問はもちろん、すべて1on1で向き合います。<br><br>
+          管理ミーティングでは、モチベーション管理・目的意識の再確認・習慣形成における課題の解決を行う、ライフコーチングの時間です。<br><br>
+          ネイティブにはできない日本語での言語化、英語講師にはできないライフスタイルと目的に応じた学習設計。</p>
         </div>
         <div class="support-item">
           <span class="num">iv</span>
-          <h4>毎日のLINE相談</h4>
-          <p>英語の疑問はもちろん、学習習慣の形成や、効果的な学習法の提案もその都度対応します。</p>
+          <h4>公式LINE・Discordでのテキスト相談</h4>
+          <p>サービス提供期間中は無制限、24時間受付。英語の疑問はもちろん、学習習慣の形成や、効果的な学習法の提案もその都度対応します。</p>
         </div>
       </div>
       <p class="lead" style="margin-top:30px;">
@@ -415,37 +429,147 @@
   </div>
 </section>
 
-<section id="plans" class="wrap">
+<section id="approach" class="wrap">
   <div class="chapter fade-in">
     <div class="chapter-num">V.</div>
     <div class="chapter-body">
+      <h2 class="chapter-title">進め方について</h2>
+      <p class="lead">
+        １．最初の1〜2ヶ月は、あなたの生活リズムや英語との向き合い方をお互いに理解し、無理なく続けられるペースを確認する期間です。実際にサービスがご自身にマッチするかご判断ください。
+        ２．そこから「このまま長期的に本気で取り組みたい」と思っていただけたら、目標から逆算した「半年間のロードマップ」を正式に設計し、よりパーソナライズされたサポートを提供します。
+      </p>
+      <p class="lead">
+        料金は最初から変わりません。関係性が深まるタイミングで、提供する中身も一緒に深まっていくイメージです。
+        無料の「意思決定面談」で「最初から本気で取り組みたい」というご意向があれば、1〜2ヶ月の期間を置かず、最初から「半年間のロードマップ」を始めることも可能です。
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap" class="wrap">
+  <div class="chapter fade-in">
+    <div class="chapter-num">VI.</div>
+    <div class="chapter-body">
+      <h2 class="chapter-title">半年間の学習ロードマップ設計</h2>
+      <p class="lead">
+        まず、現在の人生の状況(地点A)と、将来こうなりたいという姿(地点B)を確認します。そのAとBの間にある障壁こそが本当の課題であり、それを取り除くための学習設計を組み立てます。
+      </p>
+
+      <div class="t-row" style="border-bottom:1px solid var(--line);padding:24px 0;">
+        <div class="t-tag">LAYER 1</div>
+        <div class="t-text">
+          <strong>最大3ヶ月目安 ― アウトプットを通じた基礎知識のインプット</strong><br><br>
+          <strong>語彙:</strong>大学受験レベル（教材レベル：Distinction2000, Core1900, ターゲット1900程度）を自分で使えるレベルまで<br><br>
+          <strong>文法:</strong>高校英文法を自分で使えるレベルまで<br><br>
+          <strong>発音:</strong>発音に関する知識をインプットした上で自分の発音にインストール<br><br>
+          <strong>語彙・文法の基本学習プロセス:</strong>
+          ①意味・文法を理解する
+          ②自分で英文を考える
+          ③発話する
+          ④独り言でアウトプット
+          ⑤セッション内の英会話でアウトプット。
+           <strong>発音の基本学習プロセス:</strong>
+          スクリプト付き映像などを用いてネイティブの発音をミラーリングする形で、音読します(シャドウイングは基本行いません)。
+        </div>
+      </div>
+
+      <div class="t-row" style="padding:24px 0;">
+        <div class="t-tag">LAYER 2</div>
+        <div class="t-text">
+          <strong>2か月目以降 ― 段階的なスピーキング学習と語彙増強</strong><br><br>
+          Layer 1と並行しながら、早期に英語でのコミュニケーションに焦点を当てていきます。
+          会話ではリスニングとスピーキングは独立しないため、セッション内でも片方だけを取り出した練習は行いません。
+          週1回の英会話ミーティングがそのままこの練習の場になります。
+          また、一人一人の目的に応じてインプットする語彙を増やします
+        </div>
+      </div>
+
+      <p class="lead" style="margin-top:30px;">
+        このロードマップをあなただけの学習プランへ落とし込むプロセスは3段階です。
+      </p>
+      <div class="step-list">
+        <div class="step-row">
+          <span class="num">i</span>
+          <div>
+            <h4>現状の把握</h4>
+            <p>ロードマップのどの地点からスタートすべきかを一緒に見極めます。</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="num">ii</span>
+          <div>
+            <h4>To-Doの決定</h4>
+            <p>人生の目的と英語学習の目的から逆算し、いつまでに何をやるべきかを決定。「いつ・どこで」まで具体的に落とし込みTo-Do を作成します。</p>
+          </div>
+        </div>
+        <div class="step-row">
+          <span class="num">iii</span>
+          <div>
+            <h4>To-Doのトラッキング</h4>
+            <p>あなたのライフスタイル(日々のスケジュール・可処分時間)に基づいて学習習慣を形成。毎日のチャットと月2回の管理ミーティングで、モチベーションと目的意識をすり合わせ続けます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="plans" class="wrap">
+  <div class="chapter fade-in">
+    <div class="chapter-num">VII.</div>
+    <div class="chapter-body">
       <h2 class="chapter-title">プランと料金</h2>
-      <p class="lead">立ち上げ期につき、先行者価格でご案内しています。決済はStripeを通じて安全に行われます。</p>
+      <p class="lead">立ち上げ期につき、先行者価格でご案内しています。決済はStripeを通じて安全に行われます。無料相談・意思決定面談を通じて、フェーズ1(様子見)から始めるか、フェーズ2(本走ロードマップ)から始めるかを一緒に決めていきます。</p>
 
       <div class="plan-block">
         <div class="plan-left">
           <h3>学生プラン</h3>
-          <p class="plan-desc">週1回Zoom(45〜60分)+毎日LINE相談。月単位の契約なので、2ヶ月だけの集中利用も、長期の継続利用も選べます。</p>
-          <div class="plan-meta">契約期間:1ヶ月〜(自動更新・いつでも解約可) ／ お支払い:月額(クレジットカード)</div>
+          <p class="plan-desc">月6回Zoom(英会話4回+管理2回)+ LINE/Discordでの無制限テキスト相談(24時間)。月単位の契約なので、2ヶ月だけの集中利用も、長期の継続利用も選べます。</p>
+          <div class="plan-meta">契約期間:1ヶ月〜(自動更新・いつでも解約可) ／ お支払い:月額(クレジットカード) ／ 初月以内なら全額返金保証</div>
         </div>
         <div class="plan-right">
-          <p class="price">¥24,800<small>月額(税込)</small></p>
-          <a class="buy-btn" href="https://buy.stripe.com/eVq4gsea8dac05Ubmo3cc00">申し込む</a>
+          <p class="price">¥38,000<small>月額(税込)</small></p>
+          <a class="buy-btn" href="#">申し込む</a>
         </div>
       </div>
 
       <div class="plan-block">
         <div class="plan-left">
           <h3>社会人プラン</h3>
-          <p class="plan-desc">週1回Zoom+毎日LINE相談。リスキリング・ワーホリ準備に対応。月単位の契約なので、短期集中でも中長期の伴走でも選べます。</p>
-          <div class="plan-meta">契約期間:1ヶ月〜(自動更新・いつでも解約可) ／ お支払い:月額(クレジットカード)</div>
+          <p class="plan-desc">月6回Zoom(英会話4回+管理2回)+ LINE/Discordでの無制限テキスト相談(24時間)。リスキリング・ワーホリ準備に対応。月単位の契約なので、短期集中でも中長期の伴走でも選べます。</p>
+          <div class="plan-meta">契約期間:1ヶ月〜(自動更新・いつでも解約可) ／ お支払い:月額(クレジットカード) ／ 初月以内なら全額返金保証</div>
         </div>
         <div class="plan-right">
-          <p class="price">¥44,000<small>月額(税込)</small></p>
-          <a class="buy-btn" href="https://buy.stripe.com/aFa3co3vu0nq2e24Y03cc01">申し込む</a>
+          <p class="price">¥66,000<small>月額(税込)</small></p>
+          <a class="buy-btn" href="#">申し込む</a>
         </div>
       </div>
 
+      <div class="persona-grid" style="margin-top:34px;">
+        <div class="persona">
+          <div class="persona-tag">Certainty</div>
+          <h3>返金保証</h3>
+          <ul>
+            <li>初月(1ヶ月)以内に満足いただけなければ全額返金</li>
+            <li>それ以降もいつでも解約可能(提供済み分の返金はなし)</li>
+          </ul>
+        </div>
+        <div class="persona">
+          <div class="persona-tag">Bonus(半年間のロードマップ完走特典)</div>
+          <h3>【半年間ロードマップ】を走り切った方へ</h3>
+          <ul>
+            <li>半年間の分析による、あなたの強み・課題シート</li>
+            <li>目標から逆算した今後の学習ロードマップ(学習内容・方法・推奨教材)</li>
+            <li>Discordオンラインコミュニティへの参加権利(特別価格)　※サービスを終えた方にもコミュニティ開始次第ご案内いたします</li>
+            <li>7ヶ月目以降のサービス継続権利(特別価格・非連続利用でも適用)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="founder-price-note" style="margin-top:26px;">
+        3〜5名ほど集まり次第、Discordオンラインコミュニティ(週1開催予定・参加任意)を開始予定です。
+        コミュニティ開始までにお申し込みされた方は生涯価格据え置き、開始後は改めてご新規様料金は見直します。
+      </div>
       <div class="founder-price-note">
         現在は立ち上げ期のため、先行者価格でご案内しています。今後、実績・お客様の声の蓄積に伴い価格を見直す場合があります。
       </div>
@@ -455,16 +579,28 @@
 
 <section id="faq" class="wrap">
   <div class="chapter fade-in">
-    <div class="chapter-num">VI.</div>
+    <div class="chapter-num">VIII.</div>
     <div class="chapter-body">
       <h2 class="chapter-title">よくある質問</h2>
+      <div class="faq-item">
+        <p class="faq-q">無料相談だけで申し込みを決めないといけませんか？</p>
+        <p class="faq-a">いいえ。60分の無料相談は、100%あなたのお悩みや状況に向き合う時間としており、その場でのセールスは一切行いません。プランの疑問を解消したい方、様子見か本気モードかを一緒に整理したい方には、別途「意思決定面談」を強くおすすめしています。納得いただいた上で、ご自身のタイミングで申し込みへ進んでください。</p>
+      </div>
       <div class="faq-item">
         <p class="faq-q">英語がまったく話せなくても大丈夫ですか？</p>
         <p class="faq-a">大丈夫です。まずは現状のレベルと目標をヒアリングした上で、無理のない学習プランから始めます。ただし、中学レベルの語彙と文法は理解していることが望ましいです。</p>
       </div>
       <div class="faq-item">
         <p class="faq-q">資格試験対策(TOEIC等)はしてもらえますか？</p>
-        <p class="faq-a">はい。普段のスピーキング学習を軸にしながら、必要に応じて短期的に資格試験対策も組み込みます。ただし基本方針はあくまでスピーキングベースで英語力を底上げしつつ、試験での目標達成を目指します。</p>
+        <p class="faq-a">はい。普段のスピーキング学習を軸にしながら、必要に応じて短期的に資格試験対策も組み込むことが可能です。ただし基本方針はあくまでスピーキングベースで英語力を底上げしつつ、試験での目標達成を目指します。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">「半年ロードマップ」開始後でも解約できますか？</p>
+        <p class="faq-a">はい、半年ロードマップに入った後も、月単位でいつでも解約可能です。ただし、半年間走り切った方への特典(強み・課題シート、学習ロードマップ、コミュニティ参加権、7ヶ月目以降の継続特別価格)は受け取ることができません。</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">最初から「半年ロードマップ」で始めることはできますか？</p>
+        <p class="faq-a">はい、可能です。公式LINEからの無料相談後にご希望の方には「意思決定面談」を強くおすすめしており、その中で最初から本気で取り組む意向があると伺えた場合は、様子見期間を置かず、最初から本走ロードマップとしてスタートします。</p>
       </div>
       <div class="faq-item">
         <p class="faq-q">途中で解約はできますか？</p>
@@ -483,21 +619,18 @@
     <div class="chapter-num">—</div>
     <div class="chapter-body">
       <h2 class="chapter-title" style="font-size:24px;">特定商取引法に基づく表記</h2>
-      <div class="legal-note">
-        黄色くマークされた箇所は、公開前にご自身の情報へ差し替えてください。住所・電話番号を非公開にする場合は、消費者庁のガイドラインに従い「請求があれば遅滞なく開示する」旨の記載と、実際に開示できる体制の整備が必要です。
-      </div>
       <table class="legal">
-        <tr><th>販売事業者</th><td>佐藤冬惟　(屋号:Toi's English)</td></tr>
+        <tr><th>販売事業者</th><td>佐藤冬惟(屋号:Toi's English)</td></tr>
         <tr><th>運営統括責任者</th><td>佐藤冬惟</td></tr>
         <tr><th>所在地</th><td>請求があれば遅滞なく開示いたします</td></tr>
         <tr><th>電話番号</th><td>請求があれば遅滞なく開示いたします</td></tr>
         <tr><th>メールアドレス</th><td>toi.for.business@gmail.com</td></tr>
         <tr><th>販売価格</th><td>各プランページに記載の月額料金(税込)</td></tr>
         <tr><th>商品代金以外の必要料金</th><td>なし(振込手数料等が発生する場合は別途表示)</td></tr>
-        <tr><th>お支払い方法</th><td>クレジットカード決済(Stripe)</td></tr>
+        <tr><th>お支払い方法</th><td>クレジットカード決済(Stripe経由)</td></tr>
         <tr><th>お支払い時期</th><td>お申込み時、以降は毎月同日に自動決済</td></tr>
-        <tr><th>サービス提供時期</th><td>決済確認後、３日以内に初回セッションの日程を調整</td></tr>
-        <tr><th>キャンセル・返金について</th><td>最低契約期間なし。月単位の自動更新で、次回更新日の５日前までにご連絡いただければ解約可能です。日割りでの返金は行いません。</td></tr>
+        <tr><th>サービス提供時期</th><td>決済確認後、3日以内に初回セッションの日程を調整</td></tr>
+        <tr><th>キャンセル・返金について</th><td>最低契約期間なし。月単位の自動更新で、次回更新日の5日前までにご連絡いただければ解約可能です。日割りでの返金は行いません。</td></tr>
         <tr><th>動作環境</th><td>Zoom(ビデオ通話)、LINE(メッセージ)が利用できる環境</td></tr>
       </table>
     </div>
